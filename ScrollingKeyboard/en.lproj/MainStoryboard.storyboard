@@ -1,26 +1,118 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Seb-v0-vgj">
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ppv-vl-CE3">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h6f-yC-qwW">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4fg-EI-8Wy">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VXg-CG-qe9">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25x-Vn-aed">
+                                        <connections>
+                                            <action selector="switchToggled:" destination="2" eventType="valueChanged" id="z5U-Oh-pS1"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Allow scrolling:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xU-Ll-Y6m">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gha-0Y-SSu">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="158" id="EU9-dq-whi"/>
+                                        </constraints>
+                                        <string key="text">Note that when the switch at the bottom of the screen is off, tapping one of the TextFields will result in the keyboard covering the TextField. (The switch sets and unsets the delegates for the TextFields - for demonstration only)</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="25x-Vn-aed" firstAttribute="top" secondItem="9xU-Ll-Y6m" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="0f0-3S-tzc"/>
+                                    <constraint firstItem="VXg-CG-qe9" firstAttribute="top" secondItem="Seb-v0-vgj" secondAttribute="top" constant="291" id="1YZ-4x-Fk2"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ppv-vl-CE3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="3Q0-ty-QHR"/>
+                                    <constraint firstItem="4fg-EI-8Wy" firstAttribute="leading" secondItem="Seb-v0-vgj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="3xX-w8-fYy"/>
+                                    <constraint firstItem="h6f-yC-qwW" firstAttribute="leading" secondItem="Seb-v0-vgj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="5Ka-pG-lZh"/>
+                                    <constraint firstItem="gha-0Y-SSu" firstAttribute="top" secondItem="Seb-v0-vgj" secondAttribute="top" constant="20" symbolic="YES" type="default" id="A0p-VT-BEo"/>
+                                    <constraint firstItem="Ppv-vl-CE3" firstAttribute="top" secondItem="Seb-v0-vgj" secondAttribute="top" constant="372" id="BRo-cV-RNL"/>
+                                    <constraint firstAttribute="trailing" secondItem="VXg-CG-qe9" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="EiX-bQ-Qdu"/>
+                                    <constraint firstAttribute="trailing" secondItem="gha-0Y-SSu" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Hf8-Nd-CIR"/>
+                                    <constraint firstAttribute="trailing" secondItem="4fg-EI-8Wy" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="JV7-zK-3yt"/>
+                                    <constraint firstItem="9xU-Ll-Y6m" firstAttribute="top" secondItem="Seb-v0-vgj" secondAttribute="top" constant="192" id="V9A-Nf-yxB"/>
+                                    <constraint firstItem="4fg-EI-8Wy" firstAttribute="top" secondItem="VXg-CG-qe9" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aUb-DK-UoL"/>
+                                    <constraint firstItem="VXg-CG-qe9" firstAttribute="leading" secondItem="Seb-v0-vgj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="cG9-hP-DAV"/>
+                                    <constraint firstItem="25x-Vn-aed" firstAttribute="centerX" secondItem="VXg-CG-qe9" secondAttribute="centerX" type="default" id="eM2-Cc-27h"/>
+                                    <constraint firstItem="gha-0Y-SSu" firstAttribute="leading" secondItem="Seb-v0-vgj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fFd-WV-LZh"/>
+                                    <constraint firstItem="9xU-Ll-Y6m" firstAttribute="centerX" secondItem="25x-Vn-aed" secondAttribute="centerX" type="default" id="fhT-uY-pD4"/>
+                                    <constraint firstItem="h6f-yC-qwW" firstAttribute="top" secondItem="Ppv-vl-CE3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="l6a-XU-BLo"/>
+                                    <constraint firstItem="Ppv-vl-CE3" firstAttribute="leading" secondItem="Seb-v0-vgj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="lDa-16-G0I"/>
+                                    <constraint firstAttribute="trailing" secondItem="h6f-yC-qwW" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="oZy-HP-Tyc"/>
+                                    <constraint firstAttribute="bottom" secondItem="h6f-yC-qwW" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="rNS-ck-MrL"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Seb-v0-vgj" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="ELC-5A-mlP"/>
+                            <constraint firstItem="Seb-v0-vgj" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="EsZ-Kv-EEn"/>
+                            <constraint firstItem="Seb-v0-vgj" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="LJN-TZ-njs"/>
+                            <constraint firstItem="Seb-v0-vgj" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="jps-Yg-9nE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="Seb-v0-vgj" id="m4J-Ug-vcx"/>
+                        <outlet property="textField1" destination="VXg-CG-qe9" id="cGq-YD-RIL"/>
+                        <outlet property="textField2" destination="4fg-EI-8Wy" id="Sg7-gQ-tJP"/>
+                        <outlet property="textField3" destination="Ppv-vl-CE3" id="pRP-3A-4wD"/>
+                        <outlet property="textField4" destination="h6f-yC-qwW" id="JjD-Zk-NFB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="switchToggled:" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="textField1" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textField2" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textField3" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textField4" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

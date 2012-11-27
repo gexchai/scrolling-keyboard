@@ -76,12 +76,12 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 {
     CGSize newSize = self.scrollView.contentSize;
     newSize.height -= animatedDistance;
-    self.scrollView.contentSize = newSize;
     CGPoint p = self.scrollView.contentOffset;
     p.y = 0;
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    self.scrollView.contentSize = newSize;
     [self.scrollView setContentOffset:p animated:NO];
     [UIView commitAnimations];
     return YES;

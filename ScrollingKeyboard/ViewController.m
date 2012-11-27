@@ -13,7 +13,7 @@
 @end
 
 @implementation ViewController
-@synthesize scrollView = _scrollView;
+
 CGFloat animatedDistance;
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
@@ -36,6 +36,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 //but simplified and improved by the use of a scrollview
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    //the following few lines calculate how far we'll need to scroll
     CGRect textFieldRect = [self.view.window convertRect:textField.bounds fromView:textField];
     CGRect viewRect = [self.view.window convertRect:self.view.bounds fromView:self.view];
     
@@ -44,12 +45,14 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     CGFloat denominator = (MAXIMUM_SCROLL_FRACTION - MINIMUM_SCROLL_FRACTION) * viewRect.size.height;
     CGFloat heightFraction = numerator / denominator;
     
+    //make sure it's scrolling reasonably
     if (heightFraction < 0.0) {
         heightFraction = 0.0;
     }else if (heightFraction > 1.0) {
         heightFraction = 1.0;
     }
     
+    //the orientation of the phone changes how much we want to scroll.
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
         animatedDistance = floor(PORTRAIT_KEYBOARD_HEIGHT * heightFraction);
@@ -57,10 +60,12 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction);
     }
     
+    //get the scrollview's current size, and add the distance we want to scroll to it
     CGSize newSize = self.scrollView.contentSize;
     newSize.height += animatedDistance;
-    
     self.scrollView.contentSize = newSize;
+    
+    //finally, scroll that distance
     CGPoint p = self.scrollView.contentOffset;
     p.y += animatedDistance;
     [UIView beginAnimations:nil context:NULL];
@@ -74,10 +79,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
+    //reverse the process in textFieldDidBeginEditing
     CGSize newSize = self.scrollView.contentSize;
     newSize.height -= animatedDistance;
     CGPoint p = self.scrollView.contentOffset;
     p.y = 0;
+    
+    //note that we have to animate BOTH the scrollview resizing AND the offset change.
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
